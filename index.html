@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        .calculator {
+            width: 320px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .display {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: right;
+            font-size: 24px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .number {
+            background: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .operator {
+            background: #ff9500;
+            color: white;
+            font-size: 24px;
+        }
+
+        .function {
+            background: #4a4a4a;
+            color: white;
+            font-size: 24px;
+        }
+
+        .equals {
+            background: #4a8f3d;
+            color: white;
+            font-size: 24px;
+            grid-column: span 2;
+        }
+        
+        .error {
+            color: red;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        .expression {
+            color: #666;
+            font-size: 14px;
+            min-height: 20px;
+            text-align: right;
+            margin-bottom: 5px;
+        }
+
+        [data-operation="backspace"] {
+            font-size: 20px;
+            background: #832020;
+            color: white;
+        }
+
+        [data-operation="clear"] {
+            font-size: 20px;
+            background: #832020;
+            color: white;
+        }
+
+        [data-operation="sqrt"] {
+            grid-column: span 2;
+        }
+
+        [data-operation="power"] {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="expression" id="expression"></div>
+        <div class="display" id="display">0</div>
+        <div class="error" id="error"></div>
+        <div class="buttons">
+            <button class="function" data-operation="power">x^y</button>
+            <button class="function" data-operation="sqrt">√</button>
+            <button class="number" data-value="7">7</button>
+            <button class="number" data-value="8">8</button>
+            <button class="number" data-value="9">9</button>
+            <button class="operator" data-operation="add">+</button>
+            
+            <button class="number" data-value="4">4</button>
+            <button class="number" data-value="5">5</button>
+            <button class="number" data-value="6">6</button>
+            <button class="operator" data-operation="subtract">-</button>
+            
+            <button class="number" data-value="1">1</button>
+            <button class="number" data-value="2">2</button>
+            <button class="number" data-value="3">3</button>
+            <button class="operator" data-operation="multiply">×</button>
+            
+            <button class="function" data-operation="sign">±</button>
+            <button class="number" data-value="0">0</button>
+            <button class="number" data-value=".">.</button>
+            <button class="operator" data-operation="divide">÷</button>
+            
+            <!-- Functions -->
+            <button class="function" data-operation="clear">C</button>
+            <button class="function" data-operation="backspace">⌫</button>
+            <button class="equals" data-operation="equals">=</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
