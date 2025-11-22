@@ -5,22 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор</title>
     <style>
+        .container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+            margin: auto;
+            max-width: 800px;
+        }
+
         .calculator {
             width: 320px;
-            margin: 50px auto;
-            padding: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .hotkeys {
+            width: 280px;
+            padding: 10px;
             background: #f0f0f0;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
 
+        .hotkeys h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .hotkey-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hotkey-item:last-child {
+            border-bottom: none;
+        }
+
+        .hotkey-key {
+            background: #4a4a4a;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            font-weight: bold;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .hotkey-description {
+            color: #555;
+            font-size: 14px;
+            flex: 1;
+            margin-left: 12px;
+        }
+
         .display {
             background: #fff;
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
+            border-radius: 10px;
             text-align: right;
             font-size: 24px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
 
         .buttons {
@@ -36,6 +90,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: 0.3s;
+            border: 1px solid #ccc;
         }
 
         .number {
@@ -98,12 +153,13 @@
         }
     </style>
 </head>
-<body>
-    <div class="calculator">
-        <div class="expression" id="expression"></div>
-        <div class="display" id="display">0</div>
-        <div class="error" id="error"></div>
-        <div class="buttons">
+<body style="background-color: #e0e0e0;">
+    <div class="container">
+        <div class="calculator">
+            <div class="expression" id="expression"></div>
+            <div class="display" id="display">0</div>
+            <div class="error" id="error"></div>
+            <div class="buttons">
             <button class="function" data-operation="power">x^y</button>
             <button class="function" data-operation="sqrt">√</button>
             <button class="number" data-value="7">7</button>
@@ -126,10 +182,62 @@
             <button class="number" data-value=".">.</button>
             <button class="operator" data-operation="divide">÷</button>
             
-            <!-- Functions -->
             <button class="function" data-operation="clear">C</button>
             <button class="function" data-operation="backspace">⌫</button>
             <button class="equals" data-operation="equals">=</button>
+            </div>
+        </div>
+        
+        <div class="hotkeys">
+            <h3>Горячие клавиши</h3>
+            <div class="hotkey-item">
+                <span class="hotkey-key">0-9</span>
+                <span class="hotkey-description">Цифры</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">.</span>
+                <span class="hotkey-description">Десятичная точка</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">+</span>
+                <span class="hotkey-description">Сложение</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">-</span>
+                <span class="hotkey-description">Вычитание</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">*</span>
+                <span class="hotkey-description">Умножение</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">/</span>
+                <span class="hotkey-description">Деление</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">Enter</span>
+                <span class="hotkey-description">Равно (=)</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">Esc/Del/C</span>
+                <span class="hotkey-description">Очистить (C)</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">Backspace</span>
+                <span class="hotkey-description">Удалить символ</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">^</span>
+                <span class="hotkey-description">Возведение в степень</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">r</span>
+                <span class="hotkey-description">Квадратный корень</span>
+            </div>
+            <div class="hotkey-item">
+                <span class="hotkey-key">s</span>
+                <span class="hotkey-description">Смена знака (±)</span>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>
